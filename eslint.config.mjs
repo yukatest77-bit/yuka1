@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Backend folder has its own ESLint config
+    "backend/**",
   ]),
 ]);
 
