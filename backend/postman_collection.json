@@ -1,0 +1,122 @@
+{
+  "info": {
+    "name": "Tangier Pharmacy Guard API",
+    "description": "API for managing pharmacy guard data in Tangier, Morocco",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "health"]
+        },
+        "description": "Check if the server is running"
+      }
+    },
+    {
+      "name": "Get Root Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": ["{{baseUrl}}"]
+        },
+        "description": "Get API information and available endpoints"
+      }
+    },
+    {
+      "name": "Get Open Pharmacies",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/pharmacies",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "pharmacies"]
+        },
+        "description": "Get all pharmacies that are open today"
+      }
+    },
+    {
+      "name": "Get All Pharmacies",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/pharmacies/all",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "pharmacies", "all"]
+        },
+        "description": "Get all pharmacies (including closed ones)"
+      }
+    },
+    {
+      "name": "Get Pharmacy by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/pharmacies/:id",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "pharmacies", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "your-pharmacy-id",
+              "description": "The ID of the pharmacy"
+            }
+          ]
+        },
+        "description": "Get details of a specific pharmacy"
+      }
+    },
+    {
+      "name": "Find Nearest Pharmacy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"latitude\": 35.7595,\n  \"longitude\": -5.8340\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/pharmacies/nearest",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "pharmacies", "nearest"]
+        },
+        "description": "Find the nearest pharmacy to given coordinates"
+      }
+    },
+    {
+      "name": "Manual Scrape",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/pharmacies/scrape",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "pharmacies", "scrape"]
+        },
+        "description": "Manually trigger web scraping to update pharmacy data"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
