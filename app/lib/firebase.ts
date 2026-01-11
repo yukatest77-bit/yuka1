@@ -1,9 +1,5 @@
-import dotenv from 'dotenv';
 import admin from 'firebase-admin';
 import { Pharmacy } from './types';
-
-// Load environment variables before initializing Firebase
-dotenv.config();
 
 class FirebaseService {
     private db: admin.database.Database;

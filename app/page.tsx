@@ -158,9 +158,9 @@ export default function Home() {
           </h2>
 
           <div className="space-y-4">
-            {pharmacies.map((pharmacy) => (
+            {pharmacies.map((pharmacy, index) => (
               <div
-                key={pharmacy.id || Math.random()}
+                key={pharmacy.id || `pharmacy-${index}`}
                 className="border border-gray-200 rounded-lg p-5 hover:border-blue-400 hover:shadow-md transition-all"
               >
                 <div className="flex items-start justify-between">
